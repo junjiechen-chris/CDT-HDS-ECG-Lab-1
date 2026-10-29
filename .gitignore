@@ -16,3 +16,6 @@ DECISION_LOG.md
 note/*
 !note/Lab1_Lab_Note.pdf
 code/draw_*.py
+
+# Password of the data zip, kept only on the instructor machine
+DATA_PASSWORD.txt
