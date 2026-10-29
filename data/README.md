@@ -1,7 +1,8 @@
 # Data
 
 The lab uses two pickle files, distributed together as a **password-protected zip**
-(`ECG_lab_data.zip`) on Hugging Face. The password is given in the lab. The notebook's
+(`ECG_lab_data.zip`) on Hugging Face:
+https://huggingface.co/datasets/junjiechen-chris/CDT-HDS-ECG-Lab-1-data. The password is given in the lab. The notebook's
 Setup cell downloads the zip, asks for the password and unpacks it here; locally you can
 also download it by hand into this folder.
 
