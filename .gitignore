@@ -1,0 +1,18 @@
+# Environment and caches
+__pycache__/
+.ipynb_checkpoints/
+.venv/
+
+# Data: distributed as a password-protected zip (see data/README.md), never committed
+data/*
+!data/README.md
+
+# Instructor-only material: solutions, the build script that holds them, the design log
+ECG_Preprocessing_Solution.ipynb
+code/build_solution.py
+DECISION_LOG.md
+
+# Lab note: only the PDF is distributed, not the LaTeX source, template class or build products
+note/*
+!note/Lab1_Lab_Note.pdf
+code/draw_*.py

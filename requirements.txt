@@ -1,0 +1,10 @@
+numpy>=1.26
+scipy>=1.12
+matplotlib>=3.8
+ipykernel>=6
+nbconvert>=7
+jupyterlab>=4
+# Section 2's target detector, and Section 6's features.
+# NeuroKit2 >= 0.2.13: earlier versions call np.trapz, which NumPy >= 2.4 removed, so feature
+# extraction fails (and Lab 2's helper silently returns zeros).
+neurokit2>=0.2.13
