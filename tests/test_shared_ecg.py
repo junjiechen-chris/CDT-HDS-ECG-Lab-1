@@ -278,10 +278,11 @@ class WaveLabelTests(unittest.TestCase):
 
     def test_solution_fills_every_placeholder(self):
         import json
+        sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'solution'))
         try:
-            import build_solution  # Instructor-only; not in the student repository.
+            import build_solution  # Only on the solution branch.
         except ImportError:
-            self.skipTest("build_solution.py is not present")
+            self.skipTest("solution/build_solution.py is not present on this branch")
         nb = json.loads(build_solution.LAB.read_text())
         total = sum(build_solution.fill("".join(c["source"]))[1] for c in nb["cells"] if c["cell_type"] == "code")
         self.assertEqual(total, len(build_solution.FILLS) + len(build_solution.RETURN_FILLS) + 1)

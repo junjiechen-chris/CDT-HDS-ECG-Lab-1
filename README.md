@@ -50,6 +50,8 @@ source .venv/bin/activate        # Windows: .venv\Scripts\activate
 python -m pip install -r requirements.txt -r requirements-comparison.txt
 python -m unittest discover -s tests -v
 jupyter lab ECG_Preprocessing.ipynb
+# On the solution branch: rebuild and execute the solution after editing the lab notebook
+python solution/build_solution.py --execute
 ```
 
 Download `ECG_lab_data.zip` into `data/` (the Setup cell does this too) and run the Setup cell,
@@ -61,6 +63,7 @@ which asks for the password and unpacks `ECG.pkl` and `ECG_feature.pkl` there. S
 | Path | Purpose |
 |---|---|
 | `ECG_Preprocessing.ipynb` | The lab notebook, executed blank: demonstrations shown, tasks printing their reminders. |
+| `solution/ECG_Preprocessing_Solution.ipynb` | On this `solution` branch only: every placeholder filled and executed. Generated from the lab notebook by `solution/build_solution.py`; do not edit by hand. |
 | `note/Lab1_Lab_Note.pdf` | The lab note: the ideas behind each section, the figures, and the specification of every task function. |
 | `code/shared_ecg.py` | Dataset loading; `run_detector`, which chains the notebook's step functions; the reference implementations used by the self-checks; scoring, peak matching and agreement statistics; plotting and feature-table helpers. |
 | `code/benchmark.py` | NeuroKit2's beats and `hrv_time` values (the reference), and `Benchmark`: scores a detector on every recording, keeps the leaderboard, compares heart rate and RMSSD (4E) and runs the take-one-out test. |

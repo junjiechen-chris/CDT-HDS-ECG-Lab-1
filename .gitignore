@@ -7,9 +7,7 @@ __pycache__/
 data/*
 !data/README.md
 
-# Instructor-only material: solutions, the build script that holds them, the design log
-ECG_Preprocessing_Solution.ipynb
-code/build_solution.py
+# The design log stays local
 DECISION_LOG.md
 
 # Lab note: only the PDF is distributed, not the LaTeX source, template class or build products
