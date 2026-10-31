@@ -12,9 +12,16 @@ ECG_Preprocessing_Solution.ipynb
 code/build_solution.py
 DECISION_LOG.md
 
-# Lab note: only the PDF is distributed, not the LaTeX source, template class or build products
-note/*
-!note/Lab1_Lab_Note.pdf
+# Lab note: LaTeX build products
+note/*.aux
+note/*.bbl
+note/*.blg
+note/*.glo
+note/*.glo-abr
+note/*.ist
+note/*.log
+note/*.out
+note/*.toc
 code/draw_*.py
 
 # Password of the data zip, kept only on the instructor machine
