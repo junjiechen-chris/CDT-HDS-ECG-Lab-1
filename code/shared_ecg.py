@@ -174,7 +174,7 @@ STEPS = ("filter", "differentiate", "envelope", "locate", "correct")
 
 def detect_beats(x, steps=STEPS, fs=FS, *, low=0.5, high=40.0, window_s=0.12,
                  threshold_fraction=0.2, min_separation_s=0.25, polarity="positive"):
-    """Section 2's detector with only the listed steps switched on, for scoring.
+    """Section 3's detector with only the listed steps switched on, for scoring.
 
     With no steps, threshold the raw ECG relative to its middle-half maximum and
     take one beat per region. "envelope" is square + moving average. Without
