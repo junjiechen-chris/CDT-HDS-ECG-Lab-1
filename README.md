@@ -3,29 +3,28 @@
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/junjiechen-chris/CDT-HDS-ECG-Lab-1/blob/main/ECG_Preprocessing.ipynb)
 
 Open **`ECG_Preprocessing.ipynb`**, the lab notebook, and read **`note/Lab1_Lab_Note.pdf`**, the lab
-note, alongside it. The notebook follows the note's five questions, and both number their
-sections 1 to 5:
+note, alongside it. The notebook follows the note's four questions, and both number their
+sections 1 to 4:
 
 1. **What is an ECG signal?** Label the P, Q, R, S and T dots on five excerpts from N recordings,
    with one labelled example.
-2. **What is measured from it?** Code heart rate, SDRR and RMSSD from the RR sequences that
-   NeuroKit2 extracts from three recordings; checked against `hrv_time`.
-3. **Can we extract them ourselves?** The recipe is a peak finder, median imputation and the
-   arithmetic of Section 2. Code detector v1: a threshold, one beat per region above it.
-4. **Finding the beats.** Code the four steps of detector v2 (4A filter; 4B differentiate, square
-   and integrate; 4C locate; 4D median imputation). Each is scored on a benchmark across ~2,000
-   recordings against a fixed **NeuroKit2 reference**: NeuroKit2 as it is (`ecg_clean` +
-   `ecg_peaks`, no correction, and `hrv_time`). Scores: beat agreement, and the MAE and P95
-   absolute error of heart rate and RMSSD. 4E compares the final detector with the reference
-   (Bland–Altman, r, CCC); a supplied function removes one step at a time.
-5. **What are the features for?** NeuroKit2 extracts 54 features per recording (a precomputed
-   table). Code the classifier: a scaler fitted on the training set and a RandomForest of
-   100 trees, on Lab 2's split; keep the test macro F1 for Lab 2.
+2. **Measuring rhythm from ECG signals.** Code heart rate, SDRR and RMSSD from the RR sequences
+   that NeuroKit2 extracts from three recordings; checked against `hrv_time`.
+3. **Extracting rhythm features from noisy raw signals.** 3.1 NeuroKit2 as the reference beat
+   detector and the evaluation (beat agreement, and the MAE and P95 absolute error of heart rate
+   and RMSSD, across ~2,000 recordings). 3.2 Code a naive peak-finding detector (Task 3: a
+   threshold, one beat per region above it). 3.3 Code a QRS-searching detector in three steps
+   (4A filter; 4B differentiate, square and integrate; 4C locate the R peak). 3.4 Code median
+   imputation, which corrects the HRV estimate (4D). An optional part compares the final detector
+   with the reference (Bland–Altman, r, CCC) and removes one step at a time.
+4. **Classifying rhythms with ECG features.** 4.1 NeuroKit2 extracts 54 features per recording
+   (a precomputed table). 4.2 Code the classifier: a scaler fitted on the training set and a
+   RandomForest of 100 trees, on Lab 2's split; keep the test macro F1 for Lab 2.
 
 Every task is a function written from its specification (what is given, what may be used, what
 to return, how it is checked). Each is checked on an invented input and against a reference
 implementation in `code/shared_ecg.py`, then plotted or scored by supplied code. Unfinished
-tasks print a reminder; in Section 4 a blank step falls back to the reference so that later
+tasks print a reminder; in Section 3 a blank step falls back to the reference so that later
 cells still run, but it is not scored.
 
 ## Run on Colab
@@ -67,7 +66,7 @@ which asks for the password and unpacks `ECG.pkl` and `ECG_feature.pkl` there. S
 | `code/wave_labels.py` | Task 1: six N excerpts with stored wave-point positions, the labelled example, and a check against salted hashes of the answers. |
 | `code/ECG_feature_utils.py` | Lab 2's 54-feature extractor, copied unchanged (MIT). |
 | `tests/test_shared_ecg.py` | Unit tests for the helpers (synthetic data; no detector validation). |
-| `requirements.txt`, `requirements-comparison.txt` | Dependencies; the second adds scikit-learn (Section 5). |
+| `requirements.txt`, `requirements-comparison.txt` | Dependencies; the second adds scikit-learn (Section 4). |
 | `data/README.md` | What the data zip contains and where it comes from. |
 | `LICENSE`, `LICENSES/` | GPL-2.0 for the lab; the MIT notice of `ECG_feature_utils.py`. |
 
@@ -84,7 +83,7 @@ which asks for the password and unpacks `ECG.pkl` and `ECG_feature.pkl` there. S
   6.4 / 33, 218 / 648; + locate 0.91, 5.1 / 32, 194 / 604; + correct 0.90, 5.0 / 28.5, 146 / 393.
 - Neither detector supplies ground truth: agreement is not accuracy. RR intervals from a
   detector are not normal-to-normal intervals, and short-record SDRR/RMSSD are descriptive.
-- Classifier (Section 5): macro F1 0.68 on the validation set and 0.64 on the test set, the
+- Classifier (Section 4): macro F1 0.68 on the validation set and 0.64 on the test set, the
   number Lab 2 compares against.
 
 ## Provenance and licence
