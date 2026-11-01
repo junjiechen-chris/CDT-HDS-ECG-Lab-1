@@ -1,0 +1,17 @@
+# Environment and caches
+__pycache__/
+.ipynb_checkpoints/
+.venv/
+
+# Data: downloaded by the notebook's Setup cell as a password-protected zip, never committed
+data/
+
+# Kept out of this branch: the lab note and its sources, the tests, the solution builder,
+# the figure scripts, the design log, the data password and reference material
+note/
+tests/
+solution/build_solution.py
+code/draw_*.py
+DECISION_LOG.md
+DATA_PASSWORD.txt
+*.pdf
